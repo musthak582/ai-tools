@@ -1,0 +1,62 @@
+export interface AITool {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  status: 'live' | 'coming-soon' | 'beta';
+  category: string;
+  icon?: string;
+}
+
+export const aiTools: AITool[] = [
+  {
+    id: 'caption_rewriter',
+    title: 'AI Viral Caption Rewriter',
+    description: 'Transform boring text into engaging social media gold. Optimize for any platform in seconds using AI.',
+    href: '/ai-viral-caption-rewriter',
+    status: 'live',
+    category: 'Career'
+  },
+  {
+    id: 'linkedin-optimizer',
+    title: 'LinkedIn Profile Optimizer',
+    description: 'Enhance your LinkedIn profile with AI-driven recommendations',
+    href: '/linkedin',
+    status: 'coming-soon',
+    category: 'Career'
+  },
+  {
+    id: 'interview-prep',
+    title: 'AI Interview Coach',
+    description: 'Practice interviews with AI-generated questions and feedback',
+    href: '/interview',
+    status: 'coming-soon',
+    category: 'Career'
+  },
+  {
+    id: 'content-rewriter',
+    title: 'Content Rewriter',
+    description: 'Rephrase and improve your content while maintaining meaning',
+    href: '/content',
+    status: 'coming-soon',
+    category: 'Writing'
+  },
+  {
+    id: 'email-writer',
+    title: 'Professional Email Writer',
+    description: 'Craft professional emails for various business scenarios',
+    href: '/email',
+    status: 'coming-soon',
+    category: 'Writing'
+  }
+];
+
+export const categories = Array.from(new Set(aiTools.map(tool => tool.category)));
+
+export function getToolsByCategory(category: string): AITool[] {
+  return aiTools.filter(tool => tool.category === category);
+}
+
+export function getLiveTools(): AITool[] {
+  return aiTools.filter(tool => tool.status === 'live');
+}
