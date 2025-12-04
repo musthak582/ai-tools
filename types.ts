@@ -16,10 +16,25 @@ export enum Platform {
   LINKEDIN = "LinkedIn",
 }
 
+export enum HashtagStyle {
+  TRENDING = 'Trending/Viral',
+  SEO = 'SEO Optimized',
+  NICHE = 'Niche Specific',
+  SHORT = 'Short & Minimal',
+  LONG_TAIL = 'Long-tail Discovery',
+  MIXED = 'Mixed Balanced'
+}
+
 export interface RewriteRequest {
   caption: string;
   style: CaptionStyle;
   platform: Platform;
+}
+
+export interface GenerationRequest {
+  caption: string;
+  platform: Platform;
+  style: HashtagStyle;
 }
 
 export interface RewriteResponse {

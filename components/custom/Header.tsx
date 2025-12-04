@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
         <Sparkles className="w-8 h-8 text-white" />
       </div>
       {aiTools.filter(tool => tool.href == pathname).map((tool) => (
-        <div key={tool.id}>
+        <div key={tool.id} className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl">
             {tool.title}
           </h1>

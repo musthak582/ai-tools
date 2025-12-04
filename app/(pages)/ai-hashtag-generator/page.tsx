@@ -1,19 +1,19 @@
 'use client'
 import React, { useState } from 'react';
 import { AlertCircle, Sparkles } from '@/components/ui/icons';
-import { CaptionStyle, Platform } from '@/types';
+import { HashtagStyle, Platform } from '@/types';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Card, CardContent } from '@/components/ui/card';
-import { rewriteCaption } from '@/app/actions/aiViralCaptionRewriter';
 import { Header } from '@/components/custom/Header';
-import { InputSection } from '@/components/custom/InputSection';
-import { OutputSection } from '@/components/custom/OutputSection';
 import { Footer } from '@/components/custom/Footer';
+import { OutputSection2 } from '@/components/custom/OutputSection2';
+import { InputSection2 } from '@/components/custom/InputSection2';
+import { generateHashtags } from '@/app/actions/aiHastagGenerator';
 
 
 const App: React.FC = () => {
   const [caption, setCaption] = useState<string>('');
-  const [style, setStyle] = useState<CaptionStyle>(CaptionStyle.VIRAL);
+  const [style, setStyle] = useState<HashtagStyle>(HashtagStyle.TRENDING);
   const [platform, setPlatform] = useState<Platform>(Platform.INSTAGRAM);
 
   const [generatedResult, setGeneratedResult] = useState<string | null>(null);
@@ -28,7 +28,7 @@ const App: React.FC = () => {
     setGeneratedResult(null);
 
     try {
-      const result = await rewriteCaption(caption, style, platform);
+      const result = await generateHashtags(caption, platform, style);
       setGeneratedResult(result);
     } catch (err: any) {
       setError(err.message || "Something went wrong. Please try again.");
@@ -36,6 +36,8 @@ const App: React.FC = () => {
       setIsLoading(false);
     }
   };
+
+
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -64,11 +66,11 @@ const App: React.FC = () => {
               <CardContent className="p-6 lg:p-8 flex-1 flex flex-col">
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-black mb-2">Input Configuration</h2>
-                  <p className="text-gray-600">Enter your caption and customize the style</p>
+                  <p className="text-gray-600">Describe your content or paste your caption below.</p>
                 </div>
 
                 <div className="flex-1">
-                  <InputSection
+                  <InputSection2
                     caption={caption}
                     setCaption={setCaption}
                     style={style}
@@ -94,7 +96,7 @@ const App: React.FC = () => {
                     ) : (
                       <>
                         <Sparkles className="w-5 h-5" />
-                        <span>Generate AI Caption</span>
+                        <span>Generate AI Hashtags</span>
                       </>
                     )}
                   </button>
@@ -108,11 +110,11 @@ const App: React.FC = () => {
                 <CardContent className="p-6 lg:p-8 flex-1 flex flex-col">
                   <div className="mb-6">
                     <h2 className="text-2xl font-semibold text-black mb-2">AI Generated Result</h2>
-                    <p className="text-gray-600">Your optimized caption will appear here</p>
+                    <p className="text-gray-600">Your optimized hashtags will appear here</p>
                   </div>
 
                   <div className="flex-1 min-h-0">
-                    <OutputSection result={generatedResult} />
+                    <OutputSection2 result={generatedResult}/>
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-gray-100">

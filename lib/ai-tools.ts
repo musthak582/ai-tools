@@ -15,15 +15,15 @@ export const aiTools: AITool[] = [
     description: 'Transform boring text into engaging social media gold. Optimize for any platform in seconds using AI.',
     href: '/ai-viral-caption-rewriter',
     status: 'live',
-    category: 'Career'
+    category: 'Content Creation'
   },
   {
-    id: 'linkedin-optimizer',
-    title: 'LinkedIn Profile Optimizer',
-    description: 'Enhance your LinkedIn profile with AI-driven recommendations',
-    href: '/linkedin',
-    status: 'coming-soon',
-    category: 'Career'
+    id: 'hashtag-generator',
+    title: 'AI Hashtag Generator',
+    description: 'Boost your social media reach with AI-powered hashtag suggestions tailored for your content.',
+    href: '/ai-hashtag-generator',
+    status: 'live',
+    category: 'Content Creation'
   },
   {
     id: 'interview-prep',
