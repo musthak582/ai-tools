@@ -26,12 +26,12 @@ export const aiTools: AITool[] = [
     category: 'Content Creation'
   },
   {
-    id: 'interview-prep',
-    title: 'AI Interview Coach',
-    description: 'Practice interviews with AI-generated questions and feedback',
-    href: '/interview',
-    status: 'coming-soon',
-    category: 'Career'
+    id: 'cta-button-generator',
+    title: 'AI CTA Button Generator',
+    description: 'Generate high-converting CTA button texts with styles and code instantly',
+    href: '/ai-cta-button-generator',
+    status: 'live',
+    category: 'Marketing'
   },
   {
     id: 'content-rewriter',

@@ -41,3 +41,35 @@ export interface RewriteResponse {
   rewrittenCaption: string;
   error?: string;
 }
+
+export enum Tone {
+  Default = "Default",
+  Professional = "Professional",
+  Urgent = "Urgent",
+  Friendly = "Friendly",
+  Salesy = "Salesy",
+  Minimal = "Minimal",
+  Creative = "Creative"
+}
+
+export interface CTAStyle {
+  backgroundColor: string;
+  textColor: string;
+  fontSize: number;
+  fontWeight: string;
+  borderRadius: number;
+  paddingX: number;
+  paddingY: number;
+  hasShadow: boolean;
+}
+
+export interface GeneratedCTA {
+  text: string;
+  id: string;
+}
+
+export interface InputState {
+  product: string;
+  niche: string;
+  tone: Tone;
+}
